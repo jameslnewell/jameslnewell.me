@@ -23,7 +23,7 @@ const Layout = ({styles, scripts, children}) => (
     <body>
       <div id="app" dangerouslySetInnerHTML={{__html: ReactDOM.renderToString(children)}}/>
       {scripts.map(script => (
-        <script key={script} src={script} async defer/>
+        <script key={script} src={script} defer/>
       ))}
       <script async defer src="https://buttons.github.io/buttons.js"/>
       <script dangerouslySetInnerHTML={{__html: ga}}/>
