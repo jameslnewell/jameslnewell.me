@@ -22,8 +22,9 @@ npm install
 2. Upload the files in `./dist`
 
 ## To do
-- automate deployment to S3 from CI server
-- use preact to reduce file size and initialisation time of JS
-- use service worker to improve caching
-- improve accessibility
-- grovel to a designer
+- fix linting
+- :traffic_light: automate deployment to S3 from CI server
+- :watch: use Preact to reduce file size and initialisation time of JS
+- :elephant: use service worker to improve caching
+- :wheelchair: improve accessibility
+- :art: grovel to a designer

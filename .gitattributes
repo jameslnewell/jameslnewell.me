@@ -1,0 +1,12 @@
+
+# treat all files as text with lf endings
+* text=auto
+*.* text eol=lf
+
+# binary files
+*.ico binary
+*.gif binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary

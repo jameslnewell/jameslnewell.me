@@ -1,0 +1,30 @@
+{
+  "name": "resume",
+  "private": true,
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0",
+    "react-helmet": "^3.0.0",
+    "sass-breakpoints": "^2.1.0",
+    "sass-spacing": "^2.0.0",
+    "smoothscroll": "^0.3.0"
+  },
+  "devDependencies": {
+    "tradie-template-react-static-site": "1.0.0-preview.16",
+    "chai": "^3.5.0",
+    "husky": "^0.11.9",
+    "tradie": "2.0.0-preview.16",
+    "react-testutils-render": "^0.1.2",
+    "react-addons-test-utils": "^15.4.0",
+    "react-testutils-query": "^0.10.0"
+  },
+  "scripts": {
+    "clean": "tradie clean",
+    "build": "tradie build --optimize",
+    "watch": "npm run build -- --watch",
+    "serve": "tradie serve",
+    "test": "tradie test",
+    "prepush": "npm run build && npm run test"
+  }
+}

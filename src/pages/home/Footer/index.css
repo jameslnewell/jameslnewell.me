@@ -1,0 +1,10 @@
+
+.footer {
+  border-top: 4px dashed #bbb;
+}
+
+.footer__love {
+  color: #e44444;
+  font-size: 1.1em;
+  vertical-align: middle;
+}
