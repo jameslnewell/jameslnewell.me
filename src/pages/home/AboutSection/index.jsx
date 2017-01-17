@@ -14,7 +14,7 @@ const onScroll = event => {
   if (ga) {
     ga('send', 'event', 'about-me', 'scroll');
   }
-
+  
 };
 
 const AboutSection = () => (
