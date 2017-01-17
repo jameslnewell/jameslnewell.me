@@ -4,9 +4,17 @@ import './index.css';
 
 const onScroll = event => {
   event.preventDefault();
+
+  //scroll down the page
   const hash = event.target.hash;
   const target = document.getElementById(hash.substring(1));
   smoothscroll(target, 250, () => window.location.hash = hash);
+
+  //track the event
+  if (ga) {
+    ga('send', 'event', 'about-me', 'scroll');
+  }
+
 };
 
 const AboutSection = () => (
@@ -48,7 +56,7 @@ const AboutSection = () => (
           npm
         </a>
       </p>
-      
+
       <a
         className="about-me__scroll-prompt"
         title="Scroll down to find out more about me"

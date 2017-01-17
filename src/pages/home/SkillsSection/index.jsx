@@ -9,9 +9,22 @@ class Skill extends React.Component {
   }
 
   handleToggle() {
-    this.setState(state => ({
-      collapsed: !state.collapsed
-    }));
+    this.setState(
+
+      //change the state
+      state => ({
+        collapsed: !state.collapsed
+      }),
+
+      //track the event
+      () => {
+        if (ga) {
+          const action = this.state.collapsed ? 'collapse' : 'expand';
+          ga('send', 'event', 'skill', action, this.props.name);
+        }
+      }
+
+    );
   }
 
   render() {

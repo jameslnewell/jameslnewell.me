@@ -23,6 +23,7 @@ npm install
 
 ## To do
 - fix linting
+- track outbound links
 - :traffic_light: automate deployment to S3 from CI server
 - :watch: use Preact to reduce file size and initialisation time of JS
 - :elephant: use service worker to improve caching

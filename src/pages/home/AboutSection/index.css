@@ -43,6 +43,7 @@
 .about-me__community { //TODO: refactor links
   color: #bbb;
   transition: color 0.25s;
+  text-decoration: none;
   vertical-align: bottom;
   &:hover {
     color: darken(#bbb, 4%);
