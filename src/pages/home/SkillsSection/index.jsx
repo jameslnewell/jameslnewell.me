@@ -1,3 +1,4 @@
+/* global ga */
 import React from 'react';
 import classNames from 'classnames';
 import './index.css';
@@ -43,7 +44,7 @@ class Skill extends React.Component {
         </a>
 
         <div className={classNames('skill__content', {'skill__content--collapsed': collapsed})}>
-          <div className=" text-sm">
+          <div className="text-sm">
             {children}
           </div>
         </div>
@@ -141,12 +142,12 @@ const SkillSection = () => (
         </div>
         <div className="skill-list__item">
           <Skill name="Java" level={5}>
-            Experience with Java. Out of touch with the ecosystem.
+            Experience with with file and socket IO, threading and swing. Out of touch with the ecosystem.
           </Skill>
         </div>
         <div className="skill-list__item">
           <Skill name="AWS" level={2.5}>
-            Highly experienced with S3. Experience with Route 53, Lambda and Cloud Formation. Minimal experience with Beanstalk and ECS.
+            Experience with with S3, Route 53, Lambda and Cloud Formation. Minimal experience with Beanstalk and ECS.
           </Skill>
         </div>
         <div className="skill-list__item">
