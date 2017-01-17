@@ -142,12 +142,12 @@ const SkillSection = () => (
         </div>
         <div className="skill-list__item">
           <Skill name="Java" level={5}>
-            Experience with with file and socket IO, threading and swing. Out of touch with the ecosystem.
+            <p>Experience with with file and socket IO, threading and Swing. Out of touch with the Java ecosystem.</p>
           </Skill>
         </div>
         <div className="skill-list__item">
           <Skill name="AWS" level={2.5}>
-            Experience with with S3, Route 53, Lambda and Cloud Formation. Minimal experience with Beanstalk and ECS.
+            <p>Experience with with S3, Route 53, Lambda and Cloud Formation. Minimal experience with Beanstalk and ECS.</p>
           </Skill>
         </div>
         <div className="skill-list__item">

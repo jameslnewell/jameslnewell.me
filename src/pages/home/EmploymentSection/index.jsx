@@ -35,8 +35,8 @@ const WorkSection = () => (
         finishedAt="present"
       >
         Part of an agile and cross-functional team working on the aquisition funnel.
-        Championing Frontend Development on behalf the DEBD department
-        Played a significant role
+        Championing Frontend Development on for the DEBD department.
+        Played a significant role supporting teams transitioning from C# to NodeJS.
       </Job>
 
       <Job
