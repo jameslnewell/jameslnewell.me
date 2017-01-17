@@ -25,7 +25,7 @@ const Layout = ({styles, scripts, children}) => (
       {scripts.map(script => (
         <script key={script} src={script} defer/>
       ))}
-      <script async defer src="https://buttons.github.io/buttons.js"/>
+      <script src="https://buttons.github.io/buttons.js" async defer/>
       <script dangerouslySetInnerHTML={{__html: ga}}/>
     </body>
   </html>

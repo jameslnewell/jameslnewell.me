@@ -1,20 +1,14 @@
+/* global ga */
 import React from 'react';
-import smoothscroll from 'smoothscroll';
 import './index.css';
 
-const onScroll = event => {
-  event.preventDefault();
-
-  //scroll down the page
-  const hash = event.target.hash;
-  const target = document.getElementById(hash.substring(1));
-  smoothscroll(target, 250, () => window.location.hash = hash);
+const onScroll = () => {
 
   //track the event
   if (ga) {
     ga('send', 'event', 'about-me', 'scroll');
   }
-  
+
 };
 
 const AboutSection = () => (

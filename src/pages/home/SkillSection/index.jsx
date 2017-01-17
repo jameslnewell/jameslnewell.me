@@ -1,3 +1,4 @@
+/* global ga */
 import React from 'react';
 import classNames from 'classnames';
 import './index.css';
@@ -30,7 +31,7 @@ class Skill extends React.Component {
         </a>
 
         <div className={classNames('skill__content', {'skill__content--collapsed': collapsed})}>
-          <div className=" text-sm">
+          <div className="text-sm">
             {children}
           </div>
         </div>
