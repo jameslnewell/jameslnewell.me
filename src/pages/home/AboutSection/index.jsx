@@ -1,5 +1,7 @@
 /* global ga */
 import React from 'react';
+import pic from './img/me.jpg';
+import pic2x from './img/me@2x.jpg';
 import './index.css';
 
 const onScroll = () => {
@@ -12,9 +14,14 @@ const onScroll = () => {
 };
 
 const AboutSection = () => (
-  <section className="about-me p:4@xs">
+  <section className="about-me p:4@xs pb:6@xs">
     <div className="container text-center">
-      <div className="about-me__image"/>
+      <img
+        alt="My beautiful face"
+        src={pic}
+        srcSet={`${pic2x} 2x, ${pic}`}
+        className="about-me__image"
+      />
       <h1 className="about-me__name mt:3@xs">James Newell</h1>
       <p className="about-me__summary mt:2@xs">
         An <span className="about-me__country">🇦🇺</span> <strong>Software Engineer</strong>,

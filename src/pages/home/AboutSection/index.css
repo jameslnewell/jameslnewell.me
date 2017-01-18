@@ -8,18 +8,10 @@
 }
 
 .about-me__image {
-
   display: inline-block;
   width: 200px;
   height: 200px;
   border-radius: 100px;
-  background-image: url(me.jpg);
-
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    background-image: url(me@2x.jpg);
-    background-size: contain;
-  }
-
 }
 
 .about-me__summary {
