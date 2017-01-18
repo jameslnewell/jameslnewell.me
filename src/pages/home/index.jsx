@@ -9,7 +9,7 @@ import './index.css';
 
 const Example = () => (
   <div>
-    <Helmet
+    <Helmet 
       title="An 🇦🇺 Software Engineer curently specialising in Frontend Development at @nibhealthfunds &mdash; James Newell"
       meta={[
         {

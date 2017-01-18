@@ -13,7 +13,7 @@ const Job = props => {
       </p>
     </div>
   );
-};
+}; 
 
 Job.propTypes = {
   title: React.PropTypes.string.isRequired,
