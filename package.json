@@ -11,7 +11,7 @@
     "smoothscroll": "^0.3.0"
   },
   "devDependencies": {
-    "tradie-template-react-static-site": "1.0.0-preview.20",
+    "tradie-template-react-static-site": "1.0.0-preview.22",
     "chai": "^3.5.0",
     "husky": "^0.11.9",
     "tradie": "^2.0.0-preview.25",

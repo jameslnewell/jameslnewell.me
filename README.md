@@ -2,6 +2,8 @@
 
 Repository for [jameslnewell.me](https://jameslnewell.me).
 
+A static site created with React and Webpack, and hosted with Cloudflare and AWS S3.
+
 ## Installation
 
 ```bash
@@ -22,7 +24,7 @@ npm install
 2. Upload the files in `./dist`
 
 ## To do
-- :construction: fix linting
+- ~~:construction: fix linting~~
 - :shipit: track outbound links
 - :traffic_light: ~~automate deployment to S3~~ from CI server
 - :watch: use Preact to reduce file size and initialisation time of JS

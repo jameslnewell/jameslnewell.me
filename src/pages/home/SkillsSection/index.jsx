@@ -9,6 +9,11 @@ class Skill extends React.Component {
     collapsed: true
   }
 
+  constructor(...args) {
+    super(...args);
+    this.handleToggle = this.handleToggle.bind(this);
+  }
+
   handleToggle() {
     this.setState(
 
@@ -33,12 +38,12 @@ class Skill extends React.Component {
     const {collapsed} = this.state;
     return (
       <div className="skill my:2@xs">
-        <a className="skill__trigger" onClick={this.handleToggle.bind(this)}>
+        <a className="skill__trigger" onClick={this.handleToggle}>
 
           <h4 className="my:1@xs">{name}</h4>
 
           <div className="progress" title={`${level}/10`}>
-            <div className="progress__value" style={{width: `${level*10}%`}}/>
+            <div className="progress__value" style={{width: `${level * 10}%`}}/>
           </div>
 
         </a>
@@ -54,6 +59,12 @@ class Skill extends React.Component {
   }
 
 }
+
+Skill.propTypes = {
+  name: React.PropTypes.string.isRequired,
+  level: React.PropTypes.number.isRequired,
+  children: React.PropTypes.node
+};
 
 Skill.defaultProps = {
   level: 100
