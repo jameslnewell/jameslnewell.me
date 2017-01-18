@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
+import Helmet from 'react-helmet';
 import favicon from './favicon.png';
 
 const ga = `
@@ -11,26 +12,34 @@ ga('create', 'UA-90471993-1', 'auto');
 ga('send', 'pageview');
 `;
 
-const Layout = ({styles, scripts, children}) => (
-  <html>
-    <head>
-      <meta charSet="utf-8"/> 
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      {styles.map(style => (
-        <link key={style} rel="stylesheet" href={style}/>
-      ))}
-      <link rel="shortcut icon" href={favicon}/>
-    </head>
-    <body>
-      <div id="app" dangerouslySetInnerHTML={{__html: ReactDOM.renderToString(children)}}/>
-      {scripts.map(script => (
-        <script key={script} src={script} defer/>
-      ))}
-      <script src="https://buttons.github.io/buttons.js" async defer/>
-      <script dangerouslySetInnerHTML={{__html: ga}}/>
-    </body>
-  </html>
-);
+const Layout = ({styles, scripts, children}) => {
+
+  const app = ReactDOM.renderToString(children);
+  const head = Helmet.rewind();
+
+  return (
+    <html lang="en-au">
+      <head>
+        <meta charSet="utf-8"/>
+        {head.title.toComponent()}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        {styles.map(style => (
+          <link key={style} rel="stylesheet" href={style}/>
+        ))}
+        <link rel="shortcut icon" href={favicon}/>
+      </head>
+      <body>
+        <div id="app" dangerouslySetInnerHTML={{__html: app}}/>
+        {scripts.map(script => (
+          <script key={script} src={script} defer/>
+        ))}
+        <script src="https://buttons.github.io/buttons.js" async defer/>
+        <script dangerouslySetInnerHTML={{__html: ga}}/>
+      </body>
+    </html>
+  );
+
+};
 
 Layout.propTypes = {
   styles: React.PropTypes.array,
