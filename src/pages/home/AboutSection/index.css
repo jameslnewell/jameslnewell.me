@@ -13,10 +13,10 @@
   width: 200px;
   height: 200px;
   border-radius: 100px;
-  background-image: url(https://www.gravatar.com/avatar/fe5770beeac30b66be035034cb95dbda?size=200);
+  background-image: url(me.jpg);
 
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    background-image: url(https://www.gravatar.com/avatar/fe5770beeac30b66be035034cb95dbda?size=400);
+    background-image: url(me@2x.jpg);
     background-size: contain;
   }
 
