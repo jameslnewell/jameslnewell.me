@@ -27,7 +27,8 @@ const Layout = ({styles, scripts, children}) => {
           <link key={style} rel="stylesheet" href={style}/>
         ))}
         <link rel="shortcut icon" href={favicon}/>
-        <link rel="preconnect" href="https://buttons.github.io"/>
+        <link rel="dns-prefetch" href="//buttons.github.io"/>
+        <link rel='dns-prefetch' href='//www.google-analytics.com'/>
       </head>
       <body>
         <div id="app" dangerouslySetInnerHTML={{__html: app}}/>
