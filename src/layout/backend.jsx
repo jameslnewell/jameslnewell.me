@@ -27,6 +27,7 @@ const Layout = ({styles, scripts, children}) => {
           <link key={style} rel="stylesheet" href={style}/>
         ))}
         <link rel="shortcut icon" href={favicon}/>
+        <link rel="preconnect" href="https://buttons.github.io"/>
       </head>
       <body>
         <div id="app" dangerouslySetInnerHTML={{__html: app}}/>
