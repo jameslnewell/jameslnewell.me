@@ -1,25 +1,42 @@
 import React from 'react';
-import './index.css';
+import styled from 'styled-components';
+import {Margin, Padding} from 'styled-components-spacing';
+import Container from '../../../components/Container';
+import Text from '../../../components/Text';
+
+const Section = styled.footer`
+  border-top: 4px dashed #bbb;
+`;
+
+const Emoji = styled.span`
+  color: #e44444;
+  font-size: 1.1em;
+  vertical-align: middle;
+`;
 
 const Footer = () => (
-  <footer className="footer p:3@xs">
-    <div className="container text-center text-xs">
+  <Section>
+    <Padding all={3}>
+      <Container>
+        <Text align="center" size="xs">
 
-      <p>
-        Made with <span className="footer__love">♥</span> using React, Webpack, Cloudflare and AWS.
-      </p>
+          <p>
+            Made with <Emoji>♥</Emoji> using <Emoji title="styled-components">💅</Emoji>, React, Webpack, Cloudflare and AWS.
+          </p>
 
-      <p className="mt:1@xs">
-        <a
-          className="github-button"
-          href="https://github.com/jameslnewell/jameslnewell.me"
-          data-icon="octicon-repo-forked"
-          aria-label="Fork jameslnewell.me on GitHub"
-        >Fork</a>
-      </p>
+          <Margin top={1}>
+            <a
+              className="github-button"
+              href="https://github.com/jameslnewell/jameslnewell.me"
+              data-icon="octicon-repo-forked"
+              aria-label="Fork jameslnewell.me on GitHub"
+            >Fork</a>
+          </Margin>
 
-    </div>
-  </footer>
+        </Text>
+      </Container>
+    </Padding>
+  </Section>
 );
 
 export default Footer;

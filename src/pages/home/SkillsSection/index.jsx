@@ -1,5 +1,6 @@
 /* global ga */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './index.css';
 
@@ -61,9 +62,9 @@ class Skill extends React.Component {
 }
 
 Skill.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  level: React.PropTypes.number.isRequired,
-  children: React.PropTypes.node
+  name: PropTypes.string.isRequired,
+  level: PropTypes.number.isRequired,
+  children: PropTypes.node
 };
 
 Skill.defaultProps = {

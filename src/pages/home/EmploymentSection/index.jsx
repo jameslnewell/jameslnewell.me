@@ -1,82 +1,95 @@
 import React from 'react';
-import './index.css';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Grid from 'styled-components-grid';
+import {Margin, Padding} from 'styled-components-spacing';
+import Container from '../../../components/Container';
+import Text from '../../../components/Text';
+import atlassianLogo from './img/atlassian-logo.svg';
+import nibLogo from './img/nib-logo.svg';
+import deitLogo from './img/deit-logo.svg';
+
+//TODO: create an ExternalLink with target and rel
+//TODO: create a styled link
+
+const Logo = styled.img`
+  width: 64px;
+  height: 64px;
+`;
 
 const Job = props => {
-  const {title, organisation, startedAt, finishedAt, children} = props;
+  const {logo, title, organisation, startedAt, finishedAt, children} = props;
   return (
-    <div className="mt:2@xs">
-      <h3>{title}</h3>
-      <h4>{organisation}</h4>
-      <p className="text-sm">{startedAt} &mdash; {finishedAt}</p>
-      <p className="text-sm">
-        {children}
-      </p>
-    </div>
+    <Margin top={2}>
+      <Grid verticalAlign="center" wrap={false}>
+        <Grid.Unit width={'min'}>
+          <Margin vertical={3} right={3}>
+            <Logo src={logo} alt={`${title} @ ${organisation}`} title={`${title} @ ${organisation}`}/>
+          </Margin>
+        </Grid.Unit>
+        <Grid.Unit width={'max'}>
+          <h3>{title}</h3>
+          <h4>{organisation}</h4>
+          <Text size="sm">{startedAt} &mdash; {finishedAt}</Text>
+          <Text size="sm">
+            {children}
+          </Text>
+        </Grid.Unit>
+      </Grid>
+    </Margin>
   );
 };
 
 Job.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  organisation: React.PropTypes.string.isRequired,
-  startedAt: React.PropTypes.string.isRequired,
-  finishedAt: React.PropTypes.string.isRequired,
-  children: React.PropTypes.node
+  logo: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  organisation: PropTypes.string.isRequired,
+  startedAt: PropTypes.string.isRequired,
+  finishedAt: PropTypes.string.isRequired,
+  children: PropTypes.node
 };
 
 const WorkSection = () => (
-  <section id="employment" className="m:4@xs">
-    <div className="container">
-      <h2>Employment</h2>
+  <section id="employment">
+    <Padding all={4}>
+      <Container>
+        <h2>Employment</h2>
 
-      <Job
-        title="Senior Frontend Developer"
-        organisation="nib health funds"
-        startedAt="2015"
-        finishedAt="present"
-      >
-        Part of an agile and cross-functional team working on the aquisition funnel.
-        Championing Frontend Development on for the DEBD department.
-        Played a significant role supporting teams transitioning from C# to NodeJS.
-      </Job>
+        <Job
+          logo={atlassianLogo}
+          title="Senior Developer"
+          organisation="Atlassian"
+          startedAt="2017"
+          finishedAt="present"
+        />
 
-      <Job
-        title="Frontend Developer"
-        organisation="nib health funds"
-        startedAt="2014"
-        finishedAt="2015"
-      >
-        Part of an agile and cross-functional team working on the aquisition funnel.
-      </Job>
+        <Job
+          logo={nibLogo}
+          title="Senior Frontend Developer"
+          organisation="nib health funds"
+          startedAt="2015"
+          finishedAt="2017"
+        />
+         
+        <Job
+          logo={nibLogo}
+          title="Frontend Developer"
+          organisation="nib health funds"
+          startedAt="2014"
+          finishedAt="2015"
+        />
 
-      <Job
-        title="Owner and Developer"
-        organisation="Digital Edge IT"
-        startedAt="2006"
-        finishedAt="2015"
-      />
+        <Job
+          logo={deitLogo}
+          title="Owner and Developer"
+          organisation="Digital Edge IT"
+          startedAt="2006"
+          finishedAt="2015"
+        />
 
-      <Job
-        title="Developer"
-        organisation="St Philip's Christian College"
-        startedAt="2012"
-        finishedAt="2013"
-      />
-
-      <Job
-        title="Research Assistant"
-        organisation="University of Newcastle"
-        startedAt="2009"
-        finishedAt="2010"
-      />
-
-      <Job
-        title="IT Support Person"
-        organisation="St Joseph's Regional College"
-        startedAt="2006"
-        finishedAt="2007"
-      />
-
-    </div>
+        <p><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jameslnewell">View my full employment history on LinkedIn...</a></p>
+      </Container>
+    </Padding>
   </section>
 );
 

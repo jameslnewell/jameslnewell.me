@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.css';
 
 const Job = props => {
@@ -16,10 +17,10 @@ const Job = props => {
 }; 
 
 Job.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  organisation: React.PropTypes.string.isRequired,
-  startedAt: React.PropTypes.string.isRequired,
-  finishedAt: React.PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  organisation: PropTypes.string.isRequired,
+  startedAt: PropTypes.string.isRequired,
+  finishedAt: PropTypes.string.isRequired
 };
 
 const WorkSection = () => (

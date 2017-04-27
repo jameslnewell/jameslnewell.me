@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
+import PropTypes from 'prop-types';
+import {styleSheet} from 'styled-components';
 import Helmet from 'react-helmet';
 import favicon from './favicon.png';
 
@@ -14,8 +16,10 @@ ga('send', 'pageview');
 
 const Layout = ({styles, scripts, children}) => {
 
+  // styleSheet.reset();
   const app = ReactDOM.renderToString(children);
   const head = Helmet.rewind();
+  const css = styleSheet.getCSS();
 
   return (
     <html lang="en-au">
@@ -23,16 +27,18 @@ const Layout = ({styles, scripts, children}) => {
         <meta charSet="utf-8"/>
         {head.title.toComponent()}
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        {styles.map(style => (
+        {head.meta.toComponent()}
+        {styles.entry.map(style => (
           <link key={style} rel="stylesheet" href={style}/>
         ))}
-        <link rel="shortcut icon" href={favicon}/>
+        <link rel="shortcut icon" href={favicon}/> {/* TODO: backend isn't exporting files so this doesn't work */}
         <link rel="dns-prefetch" href="//buttons.github.io"/>
         <link rel='dns-prefetch' href='//www.google-analytics.com'/>
+        <style>{css}</style>
       </head>
       <body>
         <div id="app" dangerouslySetInnerHTML={{__html: app}}/>
-        {scripts.map(script => (
+        {scripts.entry.map(script => (
           <script key={script} src={script} defer/>
         ))}
         <script src="https://buttons.github.io/buttons.js" async defer/>
@@ -44,9 +50,9 @@ const Layout = ({styles, scripts, children}) => {
 };
 
 Layout.propTypes = {
-  styles: React.PropTypes.array,
-  scripts: React.PropTypes.array,
-  children: React.PropTypes.node
+  styles: PropTypes.object,
+  scripts: PropTypes.object,
+  children: PropTypes.node
 };
 
 export default Layout;
