@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 import 'smoothscroll';
 import styled, {injectGlobal} from 'styled-components';
 import AboutSection from './AboutSection';
-import EmploymentSection from './EmploymentSection';
-import SkillsSection from './SkillsSection';
+import WorkSection from './WorkSection';
+import CodeSection from './CodeSection';
 import Footer from './Footer';
 
 /* eslint-disable no-unused-expressions */
@@ -60,8 +60,8 @@ const Home = () => (
     </Helmet>
     <AboutSection/>
     <MainContent>
-      <EmploymentSection/>
-      <SkillsSection/>
+      <WorkSection/>
+      <CodeSection/>
     </MainContent>
     <Footer/>
   </div>

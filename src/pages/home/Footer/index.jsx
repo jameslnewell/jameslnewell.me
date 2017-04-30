@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Margin, Padding} from 'styled-components-spacing';
-import Container from '../../../components/Container';
-import Text from '../../../components/Text';
+import {Container, Text} from 'site-ui';
 
 const Section = styled.footer`
   border-top: 4px dashed #bbb;

@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components'
 import {darken} from 'polished';
 import {Margin, Padding} from 'styled-components-spacing';
-import Container from '../../../components/Container';
-import Text from '../../../components/Text';
+import {Container, Text} from 'site-ui';
 import pic from './img/me.jpg';
 import pic2x from './img/me@2x.jpg';
 
