@@ -5,15 +5,13 @@ Thumbs.db
 # npm
 .npmrc
 node_modules/
-!src/**/node_modules
 npm-debug.log*
 npm-debug.log.*
 yarn-error.log
 
-# editors
+# editor
 .idea
 .vscode
 
-# project
-dist/
-tmp/
+# nextjs
+.next/

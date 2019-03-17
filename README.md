@@ -2,32 +2,24 @@
 
 Repository for [jameslnewell.me](https://jameslnewell.me).
 
-A static site. Built with React and Webpack. Hosted with Cloudflare and AWS S3.
+A static site. Built with [Next.js](https://nextjs.org/). Hosted with Cloudflare and AWS S3.
 
 ## Installation
 
 ```bash
-npm install
+yarn
 ```
 
-## Building
+## Development
 
-### For development
-
-1. Run `npm run serve`
+1. Run `yarn run dev`
 2. Browse to `http://localhost:3000`
-3. Turn on Live Reload
 
-### For production
+## Deployment
 
-1. Run `npm run build`
-2. Upload the files in `./dist`
+Commit and push your changes to Github. Changes will be deployed when merged to
+master.
 
-## To do
-- ~~:construction: fix linting~~
-- :shipit: track outbound links
-- :rocket: ~~automate deployment to S3~~ from CI server
-- :watch: use Preact to reduce file size and initialisation time of JS
-- :elephant: use service worker to improve caching
-- :wheelchair: improve accessibility
-- :art: grovel to a designer
+## To do:
+
+- [ ] linting, types etc
