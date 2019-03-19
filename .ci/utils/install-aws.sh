@@ -1,3 +1,5 @@
 # install AWS CLI
 # TODO: create a docker image in order to speed this up
-sudo apt update && sudo apt install awscli, python-pip
+RUN sudo apt-get update && \
+    sudo apt-get install python-pip && \
+    sudo pip install awscli
