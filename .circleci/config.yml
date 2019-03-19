@@ -9,14 +9,14 @@ jobs:
           name: "📦 install"
           command: yarn
       - run:
-        name: "👮🏻‍♂️ lint"
-        command: "./ci/lint.sh"
+          name: "👮🏻‍♂️ lint"
+          command: "./ci/lint.sh"
       - run:
-        name: "🛠 build"
-        command: "./ci/build.sh"
+          name: "🛠 build"
+          command: "./ci/build.sh"
       - run:
-        name: "🏗 provision"
-        command: "./ci/provision.sh $environment"
+          name: "🏗 provision"
+          command: "./ci/provision.sh $environment"
       - run:
-        name: "🚀 deploy"
-        command: "./ci/deploy.sh $environment"
+          name: "🚀 deploy"
+          command: "./ci/deploy.sh $environment"
