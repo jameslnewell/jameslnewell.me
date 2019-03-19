@@ -6,17 +6,17 @@ jobs:
     steps:
       - checkout
       - run:
-          name: 📦 install
+          name: "📦 install"
           command: yarn
       - run:
-        name: 👮🏻‍♂️ lint
+        name: "👮🏻‍♂️ lint"
         command: ./ci/lint.sh
       - run:
-        name: 🛠 build
+        name: "🛠 build"
         command: ./ci/build.sh
       - run:
-        name: 🏗 provision
+        name: "🏗 provision"
         command: ./ci/provision.sh $environment
       - run:
-        name: 🚀 deploy
+        name: "🚀 deploy"
         command: ./ci/deploy.sh $environment
