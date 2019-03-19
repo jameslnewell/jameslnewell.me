@@ -55,7 +55,7 @@ Resources:
               AWS: !Sub "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${CDNOriginAccessIdentity}"
             Action: 's3:GetObject'
             Effect: Allow
-            Resource: !Sub 'arn:aws:s3:::${CDNStorage}/*'
+            Resource: !Sub '${CDNStorage.Arn}/*'
 
   CDNDistribution:
     Type: AWS::CloudFront::Distribution
@@ -120,14 +120,14 @@ Resources:
   RedirectStoragePolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref CDNStorage
+      Bucket: !Ref RedirectStorage
       PolicyDocument:
         Statement:
           - Sid: PublicReadGetObject
             Principal: "*"
             Action: 's3:GetObject'
             Effect: Allow
-            Resource: !Sub 'arn:aws:s3:::${RedirectStorage}/*'
+            Resource: !Sub '${RedirectStorage.Arn}/*'
 
   RedirectDNSRecord:
     Condition: HasAlternateDomain
