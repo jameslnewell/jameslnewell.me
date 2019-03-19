@@ -1,5 +1,5 @@
 // tslint:disable: no-reference
-/// <reference path="styled-components/cssprop" />
+/// <reference types="styled-components/cssprop" />
 import * as React from 'react';
 import {Margin, mt} from 'styled-components-spacing';
 import {OuterWrapper, InnerWrapper, Avatar, Name, Summary, Emoji, SocialLink} from './index.style';

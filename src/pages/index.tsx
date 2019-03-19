@@ -9,7 +9,7 @@ export default () => {
   return (
     <>
       <Head>
-        <title>{description} &mdash; James Newell</title>
+        <title>James Newell &mdash; {description}</title>
         <meta name="description" content={description} />
       </Head>
       <Root>

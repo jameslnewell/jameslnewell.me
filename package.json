@@ -36,10 +36,10 @@
     "typescript": "^3.3.3333"
   },
   "scripts": {
-    "lint:tslint": "tslint --project tsconfig.json",
     "lint:prettier": "prettier-check '**/*.{md,json,js,jsx,ts,tsx,d.ts}'",
+    "lint:tslint": "tslint --project tsconfig.json",
     "lint:typescript": "tsc",
-    "lint": "yarn run lint:tslint && yarn run lint:prettier && yarn run lint:typescript",
+    "lint": "yarn run lint:prettier && yarn run lint:tslint && yarn run lint:typescript",
     "dev": "next ./src",
     "build": "next build ./src && next export -o ./.build ./src"
   },
