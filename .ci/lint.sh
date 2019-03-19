@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
-set +e
+dir=$(dirname "$0")
+source $dir/utils/setup-shell.sh
+
 yarn run lint
