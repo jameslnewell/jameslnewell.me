@@ -7,5 +7,11 @@ module.exports = withTypescript(
       GA_ID: process.env.GA_ID,
     },
     distDir: '../.next',
+    exportPathMap: async () => {
+      return {
+        '/': {page: '/'},
+        '/404': {page: '/_error'},
+      };
+    },
   }),
 );
