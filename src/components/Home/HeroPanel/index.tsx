@@ -25,11 +25,11 @@ export const HeroPanel = () => (
       </Summary>
 
       <Margin top={4}>
-        <SocialLink href="https://twitter.com/jameslnewell" title="Follow me on Twitter">
-          <Twitter width="28px" />
-        </SocialLink>
         <SocialLink href="https://github.com/jameslnewell" title="Follow me on Github">
           <Github width="28px" />
+        </SocialLink>
+        <SocialLink href="https://twitter.com/jameslnewell" title="Follow me on Twitter">
+          <Twitter width="28px" />
         </SocialLink>
         <SocialLink href="https://www.linkedin.com/in/jameslnewell" title="Follow me on LinkedIn">
           <LinkedIn width="28px" />
