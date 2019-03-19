@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      - run:
+          name: 📦 install
+          command: yarn
+      - run:
+        name: 👮🏻‍♂️ lint
+        command: ./ci/lint.sh
+      - run:
+        name: 🛠 build
+        command: ./ci/build.sh
+      - run:
+        name: 🏗 provision
+        command: ./ci/provision.sh $environment
+      - run:
+        name: 🚀 deploy
+        command: ./ci/deploy.sh $environment

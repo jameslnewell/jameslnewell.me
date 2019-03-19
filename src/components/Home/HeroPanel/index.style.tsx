@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import {darken} from 'polished';
 import {m, p} from 'styled-components-spacing';
-import {} from 'styled-components/cssprop';
 import {container, text, TextAlignment} from '../../../ui';
 
 const amountToDarkenByOnHover = 0.5;

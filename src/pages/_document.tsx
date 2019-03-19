@@ -1,6 +1,6 @@
 import Document from 'next/document';
 import {ServerStyleSheet} from 'styled-components';
-import {NextDocumentContext, DefaultDocumentIProps} from 'next/document';
+import {Head, Main, NextScript, NextDocumentContext, DefaultDocumentIProps} from 'next/document';
 
 export default class MyDocument extends Document {
   public static async getInitialProps(ctx: NextDocumentContext): Promise<DefaultDocumentIProps> {
@@ -26,5 +26,17 @@ export default class MyDocument extends Document {
       // @ts-ignore
       sheet.seal();
     }
+  }
+
+  public render() {
+    return (
+      <html lang="en-au">
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </html>
+    );
   }
 }

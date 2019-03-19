@@ -12,14 +12,19 @@ export const Root = ({children}: RootProps) => (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" type="image/png" sizes="32x32" href={favicon} />
+      <link rel="canonical" href="https://jameslnewell.dev/" />
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90471993-1" />
-      <script>{`
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
         gtag('config', 'UA-90471993-1');
-      `}</script>
+      `,
+        }}
+      />
     </Head>
     <Reset />
     {children}

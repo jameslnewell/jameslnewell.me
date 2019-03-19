@@ -1,5 +1,6 @@
+// tslint:disable: no-reference
+/// <reference path="styled-components/cssprop" />
 import * as React from 'react';
-// import {} from 'styled-components/cssprop';
 import {Margin, mt} from 'styled-components-spacing';
 import {OuterWrapper, InnerWrapper, Avatar, Name, Summary, Emoji, SocialLink} from './index.style';
 import me from './img/me.jpg';
@@ -11,7 +12,7 @@ import LinkedIn from './img/linkedin-logo.svg';
 export const HeroPanel = () => (
   <OuterWrapper>
     <InnerWrapper>
-      <Avatar alt="jameslnewell smiling" src={me} srcSet={`${meAt2x} 2x, ${me}`} />
+      <Avatar alt="James smiling" src={me} srcSet={`${meAt2x} 2x, ${me}`} />
 
       <Name css={mt(3)}>James Newell</Name>
 

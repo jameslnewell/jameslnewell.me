@@ -1,5 +1,6 @@
 {
   "name": "jameslnewell.me",
+  "description": "Repository for jameslnewell.dev.",
   "private": true,
   "dependencies": {
     "@types/next": "^8.0.1",
@@ -30,6 +31,7 @@
     "next-images": "^1.1.1",
     "prettier": "^1.16.4",
     "prettier-check": "^2.0.0",
+    "satay": "^1.1.6",
     "tslint": "^5.14.0",
     "typescript": "^3.3.3333"
   },
@@ -39,8 +41,7 @@
     "lint:typescript": "tsc",
     "lint": "yarn run lint:tslint && yarn run lint:prettier && yarn run lint:typescript",
     "dev": "next ./src",
-    "build": "next build ./src",
-    "start": "next start ./src"
+    "build": "next build ./src && next export -o ./.build ./src"
   },
   "lint-staged": {
     "*.{md,json,js,jsx,ts,tsx,d.ts}": [

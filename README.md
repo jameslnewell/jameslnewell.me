@@ -1,8 +1,8 @@
-# jameslnewell.me
+# jameslnewell.dev
 
-Repository for [jameslnewell.me](https://jameslnewell.me).
+Repository for [jameslnewell.dev](https://jameslnewell.dev).
 
-A static site. Built with [Next.js](https://nextjs.org/). Hosted with Cloudflare and AWS S3.
+A static site built with [`react`](https://reactjs.org/), [`styled-components`](https://www.styled-components.com/) and [`next`](https://nextjs.org/). Hosted on AWS using CloudFormation, Route53, ACM, CloudFront and S3.
 
 ## Installation
 
@@ -17,9 +17,4 @@ yarn
 
 ## Deployment
 
-Commit and push your changes to Github. Changes will be deployed when merged to
-master.
-
-## To do:
-
-- [ ] linting, types etc
+Create a branch or a fork and commit+push your changes to Github. Your changes will be deployed to production when the PR is merged to master.
