@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 dir=$(dirname "$0")
 source $dir/utils/setup-shell.sh
+source $dir/utils/install-aws.sh
 
 environment=$1
 export AWS_DEFAULT_REGION=ap-southeast-2
