@@ -52,6 +52,8 @@ jobs:
           branches:
             ignore:
               - master
+          environment:
+            RoleARN: arn:aws:iam::796027403098:role/Deployer
 
       - run:
           name: "🏗 provision"
@@ -60,6 +62,7 @@ jobs:
             only:
               - master
           environment:
+            RoleARN: arn:aws:iam::875588135668:role/Deployer
             HostedZoneId: "ZEV303J0ZWF4F"
             CanonicalDomain: "jameslnewell.dev"
             AlternateDomain: "www.jameslnewell.dev"

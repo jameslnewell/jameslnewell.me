@@ -4,6 +4,9 @@ source $dir/utils/setup-shell.sh
 source $dir/utils/install-aws.sh
 environment=$1
 
+# assume the role
+source $dir/utils/assume-role.sh $RoleARN "deployment"
+
 # create/update the stack
 aws cloudformation deploy \
   --stack-name jameslnewell-website \
