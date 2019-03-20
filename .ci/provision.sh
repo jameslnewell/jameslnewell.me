@@ -16,7 +16,8 @@ aws cloudformation deploy \
     HostedZoneId=$HostedZoneId \
     CanonicalDomain=$CanonicalDomain \
     AlternateDomain=$AlternateDomain \
-    CertificateARN=$CertificateARN
+    CertificateARN=$CertificateARN \
+  --no-fail-on-empty-changeset
 
 # list the stack outputs
 aws cloudformation describe-stacks \
