@@ -99,3 +99,11 @@ jobs:
       - run:
           name: "🚀 deploy"
           command: ".ci/deploy.sh production"
+
+workflows:
+  version: 2
+  run:
+    jobs:
+      - dev_pipeline
+      - prod_pipeline
+
