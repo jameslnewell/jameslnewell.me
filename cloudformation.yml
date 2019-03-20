@@ -119,6 +119,7 @@ Resources:
 
   RedirectStoragePolicy:
     Type: AWS::S3::BucketPolicy
+    Condition: HasAlternateDomain
     Properties:
       Bucket: !Ref RedirectStorage
       PolicyDocument:
