@@ -1,5 +1,7 @@
 # jameslnewell.dev
 
+[![CircleCI](https://circleci.com/gh/jameslnewell/jameslnewell.dev.svg?style=svg)](https://circleci.com/gh/jameslnewell/jameslnewell.dev)
+
 Repository for [jameslnewell.dev](https://jameslnewell.dev).
 
 A static site built with [`react`](https://reactjs.org/), [`styled-components`](https://www.styled-components.com/) and [`next`](https://nextjs.org/). Hosted on AWS using CloudFormation, Route53, ACM, CloudFront and S3.
