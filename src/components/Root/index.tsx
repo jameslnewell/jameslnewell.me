@@ -13,7 +13,7 @@ export const Root = ({children}: RootProps) => (
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" type="image/png" sizes="32x32" href={favicon} />
       <link rel="canonical" href="https://jameslnewell.dev/" />
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90471993-1" />
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_ID}`} />
       <script
         dangerouslySetInnerHTML={{
           __html: `
@@ -21,7 +21,7 @@ export const Root = ({children}: RootProps) => (
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'UA-90471993-1');
+        gtag('config', '${process.env.GA_ID}');
       `,
         }}
       />

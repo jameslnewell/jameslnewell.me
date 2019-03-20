@@ -3,28 +3,78 @@ jobs:
   build:
     docker:
       - image: circleci/node
+    environment:
+      AWS_DEFAULT_REGION: 'ap-southeast-2'
+
     steps:
+
       - checkout
+
       - restore_cache:
           keys:
             # when lock file changes, use increasingly general patterns to restore cache
             - node-{{ checksum "yarn.lock" }}
+
       - run:
           name: "📦 install"
           command: yarn
+
       - save_cache:
           paths:
             - node_modules
           key: node-{{ checksum "yarn.lock" }}
+
       - run:
           name: "👮🏻‍♂️ lint"
           command: ".ci/lint.sh"
+
       - run:
           name: "🛠 build"
-          command: ".ci/build.sh"
+          command: ".ci/build.sh" development"
+          branches:
+            ignore:
+              - master
+          environment:
+            GA_ID: ""
+
+      - run:
+          name: "🛠 build"
+          command: ".ci/build.sh" production"
+          branches:
+            only:
+              - master
+          environment:
+            GA_ID: "UA-90471993-1"
+
       - run:
           name: "🏗 provision"
-          command: ".ci/provision.sh $environment"
+          command: ".ci/provision.sh development"
+          branches:
+            ignore:
+              - master
+
+      - run:
+          name: "🏗 provision"
+          command: ".ci/provision.sh production"
+          branches:
+            only:
+              - master
+          environment:
+            HostedZoneId: "ZEV303J0ZWF4F"
+            CanonicalDomain: "jameslnewell.dev"
+            AlternateDomain: "www.jameslnewell.dev"
+            CertificateARN: "arn:aws:acm:us-east-1:875588135668:certificate/c39474f5-20a3-4bc5-80a9-04cb279810c7"
+
       - run:
           name: "🚀 deploy"
-          command: ".ci/deploy.sh $environment"
+          command: ".ci/deploy.sh development"
+          branches:
+            ignore:
+              - master
+
+      - run:
+          name: "🚀 deploy"
+          command: ".ci/deploy.sh production"
+          branches:
+            only:
+              - master
