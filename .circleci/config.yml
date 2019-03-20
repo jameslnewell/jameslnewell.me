@@ -1,10 +1,6 @@
 version: 2
 jobs:
-  dev_pipeline:
-
-    branches:
-      ignore:
-        - master
+  development:
 
     docker:
       - image: circleci/node
@@ -48,11 +44,7 @@ jobs:
           name: "🚀 deploy"
           command: ".ci/deploy.sh development"
 
-  prod_pipeline:
-
-    branches:
-      only:
-        - master
+  production:
 
     docker:
       - image: circleci/node
@@ -102,8 +94,15 @@ jobs:
 
 workflows:
   version: 2
-  run:
+  all:
     jobs:
-      - dev_pipeline
-      - prod_pipeline
+      - development:
+        filters:
+          branches:
+            ignore: master
+
+      - production:
+        filters:
+          branches:
+            only: master
 
