@@ -30,7 +30,7 @@ jobs:
 
       - run:
           name: "🛠 build"
-          command: ".ci/build.sh" development"
+          command: ".ci/build.sh development"
           branches:
             ignore:
               - master
@@ -39,7 +39,7 @@ jobs:
 
       - run:
           name: "🛠 build"
-          command: ".ci/build.sh" production"
+          command: ".ci/build.sh production"
           branches:
             only:
               - master
