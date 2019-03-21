@@ -2,4 +2,8 @@
 dir=$(dirname "$0")
 source $dir/utils/setup-shell.sh
 environment=$1
+
+# assume the role
+source $dir/utils/assume-role.sh $RoleARN "deployment"
+
 yarn run satay
