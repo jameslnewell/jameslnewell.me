@@ -1,5 +1,5 @@
 module.exports = {
-  bucket: 'jameslnewell.dev',
+  bucket: process.env.BUCKET,
   region: 'ap-southeast-2',
 
   groups: [

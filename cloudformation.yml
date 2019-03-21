@@ -146,9 +146,12 @@ Resources:
         HostedZoneId: Z1WCIGYICN2BYD
 
 Outputs:
+  BucketName:
+    Value: !Ref BucketName
+    Description: The name of the storage bucket
   BucketURL:
     Value: !GetAtt [CDNStorage, WebsiteURL]
-    Description: The URL of the storage
+    Description: The URL of the storage bucket
   CDNURL:
     Value: !Sub 'https://${CDNDistribution.DomainName}/'
     Description: The URL of the CDN
