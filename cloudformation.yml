@@ -147,7 +147,7 @@ Resources:
 
 Outputs:
   BucketName:
-    Value: !Ref BucketName
+    Value: !Ref CDNStorage
     Description: The name of the storage bucket
   BucketURL:
     Value: !GetAtt [CDNStorage, WebsiteURL]
