@@ -1,33 +1,22 @@
-# jameslnewell.me
+# jameslnewell.dev
 
-Repository for [jameslnewell.me](https://jameslnewell.me).
+[![CircleCI](https://circleci.com/gh/jameslnewell/jameslnewell.dev.svg?style=svg)](https://circleci.com/gh/jameslnewell/jameslnewell.dev)
 
-A static site. Built with React and Webpack. Hosted with Cloudflare and AWS S3.
+Repository for [jameslnewell.dev](https://jameslnewell.dev).
+
+A static site built with [`react`](https://reactjs.org/), [`styled-components`](https://www.styled-components.com/) and [`next`](https://nextjs.org/). Hosted on AWS using CloudFormation, Route53, ACM, CloudFront and S3.
 
 ## Installation
 
 ```bash
-npm install
+yarn
 ```
 
-## Building
+## Development
 
-### For development
-
-1. Run `npm run serve`
+1. Run `yarn run dev`
 2. Browse to `http://localhost:3000`
-3. Turn on Live Reload
 
-### For production
+## Deployment
 
-1. Run `npm run build`
-2. Upload the files in `./dist`
-
-## To do
-- ~~:construction: fix linting~~
-- :shipit: track outbound links
-- :rocket: ~~automate deployment to S3~~ from CI server
-- :watch: use Preact to reduce file size and initialisation time of JS
-- :elephant: use service worker to improve caching
-- :wheelchair: improve accessibility
-- :art: grovel to a designer
+Create a branch or a fork and commit+push your changes to Github. Your changes will be deployed to production when the PR is merged to master.

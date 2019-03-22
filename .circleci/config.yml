@@ -1,0 +1,108 @@
+version: 2
+jobs:
+  development:
+
+    docker:
+      - image: circleci/node
+
+    environment:
+      AWS_DEFAULT_REGION: 'ap-southeast-2'
+      GA_ID: ''
+      RoleARN: 'arn:aws:iam::796027403098:role/Deployer'
+
+    steps:
+
+      - checkout
+
+      - restore_cache:
+          keys:
+            # when lock file changes, use increasingly general patterns to restore cache
+            - node-{{ checksum "yarn.lock" }}
+
+      - run:
+          name: "📦 install"
+          command: yarn
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: node-{{ checksum "yarn.lock" }}
+
+      - run:
+          name: "👮🏻‍♂️ lint"
+          command: ".ci/lint.sh"
+
+      - run:
+          name: "🛠 build"
+          command: ".ci/build.sh development"
+
+      - run:
+          name: "🏗 provision"
+          command: ".ci/provision.sh development"
+
+      - run:
+          name: "🚀 deploy"
+          command: ".ci/deploy.sh development"
+
+  production:
+
+    docker:
+      - image: circleci/node
+
+    environment:
+      AWS_DEFAULT_REGION: 'ap-southeast-2'
+      GA_ID: 'UA-90471993-1'
+      RoleARN: arn:aws:iam::875588135668:role/Deployer
+      HostedZoneId: "ZEV303J0ZWF4F"
+      CanonicalDomain: "jameslnewell.dev"
+      AlternateDomain: "www.jameslnewell.dev"
+      CertificateARN: "arn:aws:acm:us-east-1:875588135668:certificate/c39474f5-20a3-4bc5-80a9-04cb279810c7"
+
+    steps:
+
+      - checkout
+
+      - restore_cache:
+          keys:
+            # when lock file changes, use increasingly general patterns to restore cache
+            - node-{{ checksum "yarn.lock" }}
+
+      - run:
+          name: "📦 install"
+          command: yarn
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: node-{{ checksum "yarn.lock" }}
+
+      - run:
+          name: "👮🏻‍♂️ lint"
+          command: ".ci/lint.sh"
+
+      - run:
+          name: "🛠 build"
+          command: ".ci/build.sh production"
+
+      - run:
+          name: "🏗 provision"
+          command: ".ci/provision.sh production"
+
+      - run:
+          name: "🚀 deploy"
+          command: ".ci/deploy.sh production"
+
+workflows:
+  version: 2
+  pipeline:
+    jobs:
+      - development:
+          filters:
+            branches:
+              ignore: master
+
+      - production:
+          filters:
+            branches:
+              only: master
+

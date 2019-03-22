@@ -1,34 +1,57 @@
 {
-  "name": "resume",
+  "name": "jameslnewell.me",
+  "description": "Repository for jameslnewell.dev.",
   "private": true,
   "dependencies": {
-    "classnames": "^2.2.5",
-    "react": "^15.4.0",
-    "react-dom": "^15.4.0",
-    "react-helmet": "^3.0.0",
-    "sass-breakpoints": "^2.1.0",
-    "sass-spacing": "^2.0.0",
-    "smoothscroll": "^0.3.0"
+    "@types/next": "^8.0.1",
+    "@types/react": "^16.8.7",
+    "@types/react-dom": "^16.8.2",
+    "@types/styled-components": "^4.1.6",
+    "polished": "^3.0.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "styled-components": "^4.1.3",
+    "styled-components-grid": "^2.2.2",
+    "styled-components-spacing": "^3.1.1"
   },
   "devDependencies": {
-    "tradie-template-react-static-site": "1.0.0-preview.22",
-    "chai": "^3.5.0",
-    "husky": "^0.11.9",
-    "tradie": "^2.0.0-preview.25",
-    "react-testutils-render": "^0.1.2",
-    "react-addons-test-utils": "^15.4.0",
-    "react-testutils-query": "^0.10.0"
+    "@babel/core": "^7.3.4",
+    "@jameslnewell/editor-config": "^1.0.1",
+    "@jameslnewell/eslint-config": "^0.3.0",
+    "@jameslnewell/prettier-config": "^1.0.1",
+    "@jameslnewell/tslint-config": "^0.1.0",
+    "@jameslnewell/typescript-config": "^2.0.2",
+    "@zeit/next-typescript": "^1.1.1",
+    "babel-plugin-inline-react-svg": "^1.0.1",
+    "babel-plugin-styled-components": "^1.10.0",
+    "eslint": "^5.15.1",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "next": "^8.0.3",
+    "next-images": "^1.1.1",
+    "prettier": "^1.16.4",
+    "prettier-check": "^2.0.0",
+    "satay": "^1.1.6",
+    "tslint": "^5.14.0",
+    "typescript": "^3.3.3333"
   },
   "scripts": {
-    "clean": "tradie clean",
-    "build": "tradie build --optimize",
-    "watch": "npm run build -- --watch",
-    "serve": "tradie serve",
-    "test": "tradie test",
-    "prepush": "npm run build && npm run test",
-    "upload:assets": "aws s3 sync --profile deploy-prod --delete ./dist s3://jameslnewell.me --exclude robots.txt --exclude \"*.html\" --exclude .DS_Store --expires \"2020-01-01T00:00:00Z\"",
-    "upload:html": "aws s3 cp --profile deploy-prod ./dist/index.html s3://jameslnewell.me",
-    "upload:robots": "aws s3 cp --profile deploy-prod ./src/robots.txt s3://jameslnewell.me",
-    "upload": "npm run clean && npm run build && npm run upload:assets && npm run upload:html && npm run upload:robots"
+    "lint:prettier": "prettier-check '**/*.{md,json,js,jsx,ts,tsx,d.ts}'",
+    "lint:tslint": "tslint --project tsconfig.json",
+    "lint:typescript": "tsc",
+    "lint": "yarn run lint:prettier && yarn run lint:tslint && yarn run lint:typescript",
+    "dev": "next ./src",
+    "build": "next build ./src && next export -o ./.build ./src"
+  },
+  "lint-staged": {
+    "*.{md,json,js,jsx,ts,tsx,d.ts}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
