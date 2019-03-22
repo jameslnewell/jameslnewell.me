@@ -20,7 +20,6 @@ export const Root = ({children}: RootProps) => (
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', '${process.env.GA_ID}');
       `,
         }}

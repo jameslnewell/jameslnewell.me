@@ -52,10 +52,12 @@ Resources:
         Statement:
           - Sid: PrivateReadForGetBucketObjects
             Principal:
-              AWS: !Sub "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${CDNOriginAccessIdentity}"
-            Action: 's3:GetObject'
+              CanonicalUser: !GetAtt [CDNOriginAccessIdentity, S3CanonicalUserId]
+            Action:
+              - 's3:GetObject'
             Effect: Allow
-            Resource: !Sub '${CDNStorage.Arn}/*'
+            Resource:
+              - !Sub '${CDNStorage.Arn}/*'
 
   CDNDistribution:
     Type: AWS::CloudFront::Distribution
