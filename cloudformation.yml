@@ -88,7 +88,7 @@ Resources:
         CustomErrorResponses:
           - ErrorCode: 404
             ResponseCode: 404
-            ResponsePagePath: /404.html
+            ResponsePagePath: /404/index.html
         ViewerCertificate: !If
           - HasCertificateARN
           - AcmCertificateArn: !Ref CertificateARN
