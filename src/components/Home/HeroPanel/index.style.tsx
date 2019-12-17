@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {darken} from 'polished';
 import {m, p} from 'styled-components-spacing';
-import {container, text, TextAlignment} from '../../../ui';
+import {container, text, TextAlignment, Emoji} from '../../../ui';
 
 const amountToDarkenByOnHover = 0.5;
 
@@ -43,7 +43,7 @@ export const Summary = styled.div`
   line-height: 1.25rem;
 `;
 
-export const Emoji = styled.span`
+export const FlagEmoji = styled(Emoji)`
   font-size: 1.75rem;
   vertical-align: middle;
 `;
@@ -74,7 +74,7 @@ export interface SocialLinkProps {
   children: React.ReactNode;
 }
 
-export const SocialLink = ({title, href, children}: SocialLinkProps) => (
+export const SocialLink: React.FC<SocialLinkProps> = ({title, href, children}) => (
   <Link
     target="_blank"
     rel="noopener noreferrer"

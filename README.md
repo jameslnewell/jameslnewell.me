@@ -4,7 +4,7 @@
 
 Repository for [jameslnewell.dev](https://jameslnewell.dev).
 
-A static site built with [`react`](https://reactjs.org/), [`styled-components`](https://www.styled-components.com/) and [`next`](https://nextjs.org/). Hosted on AWS using CloudFormation, Route53, ACM, CloudFront and S3.
+A static site built with [`react`](https://reactjs.org/), [`styled-components`](https://www.styled-components.com/) and [`gatsby`](https://www.gatsbyjs.org/). Hosted on AWS using CloudFormation, Route53, ACM, CloudFront and S3.
 
 ## Installation
 

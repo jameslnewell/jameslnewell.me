@@ -1,15 +1,20 @@
-import * as React from 'react';
-import Head from 'next/head';
+import React from 'react';
+import {Helmet} from 'react-helmet';
 import {Reset} from '../../ui';
 import favicon from './img/favicon.png';
+
+const bio = `An 🇦🇺 Software Engineer passionate about empowering teams to deliver more efficiently, with more confidence and to a higher degree of quality.`;
 
 export interface RootProps {
   children: React.ReactNode;
 }
 
-export const Root = ({children}: RootProps) => (
+export const Root: React.FC<RootProps> = ({children}: RootProps) => (
   <>
-    <Head>
+    <Helmet titleTemplate="James Newell   %s">
+      <html lang="en-au" />
+      <title>{bio}</title>
+      <meta title="description" content={bio} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" type="image/png" sizes="32x32" href={favicon} />
       <link rel="canonical" href="https://jameslnewell.dev/" />
@@ -24,7 +29,7 @@ export const Root = ({children}: RootProps) => (
       `,
         }}
       />
-    </Head>
+    </Helmet>
     <Reset />
     {children}
   </>
