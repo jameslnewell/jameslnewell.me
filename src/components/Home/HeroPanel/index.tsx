@@ -1,15 +1,16 @@
 // tslint:disable: no-reference
 /// <reference types="styled-components/cssprop" />
-import * as React from 'react';
+import React from 'react';
 import {Margin, mt} from 'styled-components-spacing';
-import {OuterWrapper, InnerWrapper, Avatar, Name, Summary, Emoji, SocialLink} from './index.style';
+import {Emoji} from '../../Emoji';
+import {OuterWrapper, InnerWrapper, Avatar, Name, Summary, SocialLink} from './index.style';
 import me from './img/me.jpg';
 import meAt2x from './img/me@2x.jpg';
 import Twitter from './img/twitter-logo.svg';
 import Github from './img/github-logo.svg';
 import LinkedIn from './img/linkedin-logo.svg';
 
-export const HeroPanel = () => (
+export const HeroPanel: React.FC = () => (
   <OuterWrapper>
     <InnerWrapper>
       <Avatar alt="James smiling" src={me} srcSet={`${meAt2x} 2x, ${me}`} />
@@ -18,8 +19,8 @@ export const HeroPanel = () => (
 
       <Summary css={mt(2)}>
         <p>
-          An <Emoji>🇦🇺</Emoji> <strong>Software Engineer</strong> passionate about{' '}
-          <strong>empowering teams</strong> to deliver <em>more efficiently</em>, with{' '}
+          An <Emoji glyph="🇦🇺" label="Australian" /> <strong>Software Engineer</strong> passionate
+          about <strong>empowering teams</strong> to deliver <em>more efficiently</em>, with{' '}
           <em>more confidence</em> and to a <em>higher degree of quality</em>.
         </p>
       </Summary>

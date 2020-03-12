@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Head from 'next/head';
 import {Reset} from '../../ui';
 import favicon from './img/favicon.png';
@@ -7,7 +7,7 @@ export interface RootProps {
   children: React.ReactNode;
 }
 
-export const Root = ({children}: RootProps) => (
+export const Root: React.FC<RootProps> = ({children}) => (
   <>
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />

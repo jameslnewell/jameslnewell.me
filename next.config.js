@@ -1,21 +1,18 @@
 const withImages = require('next-images');
-const withTypescript = require('@zeit/next-typescript');
 
-module.exports = withTypescript(
-  withImages({
-    distDir: '../.next',
+module.exports = withImages({
+  distDir: '../.next',
 
-    env: {
-      GA_ID: process.env.GA_ID,
-    },
+  env: {
+    GA_ID: process.env.GA_ID,
+  },
 
-    exportPathMap: async () => {
-      return {
-        '/': {page: '/'},
-        '/404': {page: '/_error', query: {code: '404'}},
-        '/4xx': {page: '/_error', query: {code: '4xx'}},
-        '/5xx': {page: '/_error', query: {code: '5xx'}},
-      };
-    },
-  }),
-);
+  exportPathMap: async () => {
+    return {
+      '/': {page: '/'},
+      '/404': {page: '/_error', query: {code: '404'}},
+      '/4xx': {page: '/_error', query: {code: '4xx'}},
+      '/5xx': {page: '/_error', query: {code: '5xx'}},
+    };
+  },
+});

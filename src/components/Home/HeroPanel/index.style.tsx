@@ -43,11 +43,6 @@ export const Summary = styled.div`
   line-height: 1.25rem;
 `;
 
-export const Emoji = styled.span`
-  font-size: 1.75rem;
-  vertical-align: middle;
-`;
-
 export const Link = styled.a`
   color: #bbb;
   transition: color 0.25s;
@@ -74,7 +69,7 @@ export interface SocialLinkProps {
   children: React.ReactNode;
 }
 
-export const SocialLink = ({title, href, children}: SocialLinkProps) => (
+export const SocialLink: React.FC<SocialLinkProps> = ({title, href, children}) => (
   <Link
     target="_blank"
     rel="noopener noreferrer"

@@ -28,7 +28,7 @@ const sizeMap: {[size in TextSize]: string} = {
   xl: '24px',
 };
 
-export const text = (props: TextProps) => `
+export const text = (props: TextProps): string => `
   text-align: ${props.align || TextAlignment.LEFT};
   font-size: ${sizeMap[props.size || TextSize.md]};
 `;

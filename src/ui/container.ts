@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const container = () => `
+export const container = (): string => `
   margin: auto;
   width: 100%;
   max-width: 1200px; /* TODO: use ems */

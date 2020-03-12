@@ -14,5 +14,7 @@ yarn-error.log
 .vscode
 
 # nextjs
+.cache/
 .next/
 .build/
+public

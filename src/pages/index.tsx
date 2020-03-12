@@ -1,11 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 import Head from 'next/head';
 import {Root} from '../components/Root';
 import {HeroPanel} from '../components/Home/HeroPanel';
 
 const description = 'An 🇦🇺 Software Engineer passionate about...';
 
-export default () => {
+const HomePage: React.FC = () => {
   return (
     <>
       <Head>
@@ -18,3 +18,5 @@ export default () => {
     </>
   );
 };
+
+export default HomePage;
