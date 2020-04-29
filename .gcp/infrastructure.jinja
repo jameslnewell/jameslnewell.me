@@ -1,0 +1,98 @@
+
+properties:
+  - environment
+
+resources:
+
+  - name: bucket
+    type: storage.v1.bucket
+    properties:
+      iamConfiguration:
+        uniformBucketLevelAccess:
+          enabled: true
+      location: US
+      name: blah-jameslnewell
+      project: '{{ env["project"] }}'
+      storageClass: STANDARD
+    accessControl:
+      gcpIamPolicy:
+        bindings:
+        - role: roles/storage.objectViewer
+          members:
+          - "user:james@jameslnewell.dev"
+          - 'serviceAccount:{{ env["project_number"] }}@cloudservices.gserviceaccount.com'
+        - role: roles/storage.legacyBucketOwner
+          members:
+          - "projectEditor:{{ env[project_id] }}"
+          - "projectOwner:{{ env[project_id] }}"
+        - role: roles/storage.legacyBucketReader
+          members:
+          - "projectViewer:{{ env[project_id] }}"
+
+  - name: backend-bucket
+    type: compute.beta.backendBucket
+    properties:
+      bucketName: $(ref.bucket.name)
+      enableCdn: true
+
+  - name: certificate
+    type: compute.beta.sslCertificate
+    properties:
+      type: MANAGED
+      managed:
+        domains:
+          - jameslnewell.dev
+
+  - name: health-check
+    type: compute.beta.httpsHealthCheck
+
+  - name: url-map
+    type: compute.v1.urlMap
+    properties:
+      defaultService: $(ref.backend-bucket.selfLink)
+      hostRules:
+        - pathMatcher: path-matcher-1
+          hosts:
+            - jameslnewell.dev
+      pathMatchers:
+        - name: path-matcher-1
+          defaultService: $(ref.backend-bucket.selfLink)
+          pathRules:
+            - paths:
+                - /
+              service: $(ref.backend-bucket.selfLink)
+
+  - name: http-proxy
+    type: compute.beta.targetHttpProxy
+    properties:
+      urlMap: $(ref.url-map.selfLink)
+
+  - name: https-proxy
+    type: compute.beta.targetHttpsProxy
+    properties:
+      urlMap: $(ref.url-map.selfLink)
+      sslCertificates:
+        - $(ref.certificate.selfLink)
+
+  - name: ip-address
+    type: compute.v1.globalAddress
+
+  - name: http-forwardingrule
+    type: compute.v1.globalForwardingRule
+    properties:
+      target: $(ref.http-proxy.selfLink)
+      IPAddress: $(ref.ip-address.address)
+      IPProtocol: TCP
+      portRange: 80-80
+
+  - name: https-forwardingrule
+    type: compute.v1.globalForwardingRule
+    properties:
+      target: $(ref.https-proxy.selfLink)
+      IPAddress: $(ref.ip-address.address)
+      IPProtocol: TCP
+      portRange: 443-443
+
+outputs:
+  - name: public-ip
+    value: $(ref.ip-address.address)

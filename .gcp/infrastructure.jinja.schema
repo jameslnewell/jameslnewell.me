@@ -1,0 +1,12 @@
+info:
+  title: Infrastructure
+  author: James Newell
+  description: Infrastructure for jameslnewell.dev
+
+required:
+  - environment
+
+properties:
+  environment:
+    type: string
+    description: The environment
