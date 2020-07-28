@@ -59,8 +59,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: type-files
-          path: src
-      - run: ls -la src
+          path: src/types
       - run: yarn run typing
 
   building:
