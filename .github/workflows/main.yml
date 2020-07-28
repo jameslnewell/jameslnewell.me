@@ -60,7 +60,7 @@ jobs:
         with:
           name: type-files
           path: src
-      - run: ls -la src/types
+      - run: ls -la src
       - run: yarn run typing
 
   building:
