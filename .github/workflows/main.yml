@@ -88,6 +88,7 @@ jobs:
     needs: [formatting, linting, typing, building]
     steps:
       - run: echo '::set-env name=ENV::$( if [ $GITHUB_REF == "refs/heads/master" ] ; then echo "production"; else echo "staging"; fi )'
+      - run: echo '::set-env name=BUCKET::$( if [ $ENV == "jameslnewell.dev" ] ; then echo "foo"; else echo ""; fi )'
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
       - id: yarn-cache-dir-path
