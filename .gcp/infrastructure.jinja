@@ -5,38 +5,51 @@ properties:
 resources:
 
   - name: bucket
-    type: storage.v1.bucket
+    type: gcp-types/storage-v1:buckets
     properties:
       iamConfiguration:
         uniformBucketLevelAccess:
           enabled: true
       location: US
-      name: blah-jameslnewell
+      name: jameslnewell.dev
       project: '{{ env["project"] }}'
       storageClass: STANDARD
+      website:
+        mainPageSuffix: index.html
+        notFoundpage: 404.html
+    {#
     accessControl:
       gcpIamPolicy:
-        bindings:
-        - role: roles/storage.objectViewer
-          members:
-          - "user:james@jameslnewell.dev"
-          - 'serviceAccount:{{ env["project_number"] }}@cloudservices.gserviceaccount.com'
-        - role: roles/storage.legacyBucketOwner
-          members:
-          - "projectEditor:{{ env[project_id] }}"
-          - "projectOwner:{{ env[project_id] }}"
-        - role: roles/storage.legacyBucketReader
-          members:
-          - "projectViewer:{{ env[project_id] }}"
+          bindings:
+          - role: roles/storage.objectViewer
+            members:
+            - allUsers
+    #}
+
+  {#
+    Use of virtual.buckets.iamMemberBinding avoids concurrency issues
+    in applying IAM roles
+  #}
+  - name: bucket-access-control
+    type: gcp-types/storage-v1:virtual.buckets.iamMemberBinding
+    properties:
+      bucket: $(ref.bucket.name)
+      {#
+        Using a legacy object to prevent directory listing
+        https://cloud.google.com/storage/docs/access-control/making-data-public#buckets
+       #}
+      role: roles/storage.objectViewer
+      {# role: roles/storage.legacyObjectReader #}
+      member: allUsers
 
   - name: backend-bucket
-    type: compute.beta.backendBucket
+    type: gcp-types/compute-v1:backendBuckets
     properties:
       bucketName: $(ref.bucket.name)
       enableCdn: true
 
   - name: certificate
-    type: compute.beta.sslCertificate
+    type: gcp-types/compute-v1:sslCertificates # beta?
     properties:
       type: MANAGED
       managed:
@@ -44,10 +57,10 @@ resources:
           - jameslnewell.dev
 
   - name: health-check
-    type: compute.beta.httpsHealthCheck
+    type: gcp-types/compute-v1:httpsHealthChecks
 
   - name: url-map
-    type: compute.v1.urlMap
+    type: gcp-types/compute-v1:urlMaps
     properties:
       defaultService: $(ref.backend-bucket.selfLink)
       hostRules:
@@ -63,22 +76,22 @@ resources:
               service: $(ref.backend-bucket.selfLink)
 
   - name: http-proxy
-    type: compute.beta.targetHttpProxy
+    type: gcp-types/compute-v1:targetHttpProxies
     properties:
       urlMap: $(ref.url-map.selfLink)
 
   - name: https-proxy
-    type: compute.beta.targetHttpsProxy
+    type: gcp-types/compute-v1:targetHttpsProxies
     properties:
       urlMap: $(ref.url-map.selfLink)
       sslCertificates:
         - $(ref.certificate.selfLink)
 
   - name: ip-address
-    type: compute.v1.globalAddress
+    type: gcp-types/compute-v1:globalAddresses
 
   - name: http-forwardingrule
-    type: compute.v1.globalForwardingRule
+    type: gcp-types/compute-v1:globalForwardingRules
     properties:
       target: $(ref.http-proxy.selfLink)
       IPAddress: $(ref.ip-address.address)
@@ -86,7 +99,7 @@ resources:
       portRange: 80-80
 
   - name: https-forwardingrule
-    type: compute.v1.globalForwardingRule
+    type: gcp-types/compute-v1:globalForwardingRules
     properties:
       target: $(ref.https-proxy.selfLink)
       IPAddress: $(ref.ip-address.address)

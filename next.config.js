@@ -10,6 +10,7 @@ module.exports = withImages({
   exportPathMap: async () => {
     return {
       '/': {page: '/'},
+      '/learn/index.html': {page: '/learn'},
       '/404': {page: '/_error', query: {code: '404'}},
       '/4xx': {page: '/_error', query: {code: '4xx'}},
       '/5xx': {page: '/_error', query: {code: '5xx'}},
