@@ -42,6 +42,7 @@ jobs:
   typing:
     name: 👮‍♂️Typing
     runs-on: ubuntu-latest
+    needs: [building]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
@@ -84,7 +85,7 @@ jobs:
   deploying:
     name: 👨‍✈️Deploying
     runs-on: ubuntu-latest
-    needs: building
+    needs: [formatting, linting, typing, building]
     steps:
       - run: echo '::set-env name=ENV::$( if [ $GITHUB_REF == "refs/heads/master" ] ; then echo "production"; else echo "staging"; fi )'
       - uses: actions/checkout@v2
