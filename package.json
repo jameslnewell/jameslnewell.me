@@ -1,7 +1,10 @@
 {
   "name": "jameslnewell.dev",
-  "description": "Repository for jameslnewell.dev.",
+  "description": "The website at jameslnewell.dev.",
   "private": true,
+  "browserslist": [
+    "last 1 versions"
+  ],
   "dependencies": {
     "@types/helmet": "^0.0.45",
     "@types/react": "^16.9.16",
@@ -28,11 +31,15 @@
     "eslint": "^6.7.2",
     "gatsby": "^2.18.12",
     "gatsby-plugin-google-tagmanager": "^2.1.20",
+    "gatsby-plugin-graphql-codegen": "^2.7.1",
     "gatsby-plugin-no-javascript": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.1.18",
     "gatsby-plugin-react-svg": "^2.1.2",
+    "gatsby-plugin-sharp": "^2.6.23",
     "gatsby-plugin-styled-components": "^3.1.16",
     "gatsby-plugin-typescript": "^2.1.23",
+    "gatsby-source-filesystem": "^2.3.23",
+    "gatsby-transformer-sharp": "^2.5.11",
     "husky": "^3.1.0",
     "prettier": "^1.19.1",
     "prettier-check": "^2.0.0",
@@ -41,11 +48,10 @@
     "typescript": "^3.7.3"
   },
   "scripts": {
+    "clean": "gatsby clean",
     "formatting": "prettier-check '**/*.{md,json,js,jsx,ts,tsx,d.ts}'",
     "typing": "tsc",
     "linting": "eslint --ext .ts,.tsx src",
-    "check": "yarn run typing && yarn run linting",
-    "clean": "gatsby clean",
     "start": "gatsby develop",
     "build": "gatsby build"
   },

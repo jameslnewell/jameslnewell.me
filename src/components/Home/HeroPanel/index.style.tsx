@@ -25,14 +25,9 @@ export const InnerWrapper = styled.div`
   ${text({align: TextAlignment.CENTER})}
 `;
 
-const avatarSize = 200;
-const baseFontSize = 16;
-
 export const Avatar = styled.img`
   display: inline-block;
-  width: ${avatarSize / baseFontSize}em;
-  height: ${avatarSize / baseFontSize}em;
-  border-radius: ${avatarSize / 2 / baseFontSize}em;
+  border-radius: 50%;
 `;
 
 export const Name = styled.h1``;

@@ -21,11 +21,11 @@ export enum TextSize {
 }
 
 const sizeMap: {[size in TextSize]: string} = {
-  xs: '10px', // TODO: ems
-  sm: '14px',
-  md: '16px',
-  lg: '18px',
-  xl: '24px',
+  xs: '0.625em',
+  sm: '0.875em',
+  md: '1em',
+  lg: '1.125em',
+  xl: '1.5em',
 };
 
 export const text = (props: TextProps) => `
