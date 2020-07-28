@@ -5,7 +5,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: [`pages/*.ts`, `pages/*.tsx`],
+      files: [`**/pages/*.ts`, `**/pages/*.tsx`],
       rules: {
         'react/display-name': 0,
       },
