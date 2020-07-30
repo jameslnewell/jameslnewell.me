@@ -97,6 +97,7 @@ jobs:
     steps:
       - run: if [ $GITHUB_REF == "refs/heads/master" ] ; then echo '::set-env name=ENV::production'; else echo '::set-env name=ENV::development'; fi
       - run: if [ $GITHUB_REF == "refs/heads/master" ] ; then echo '::set-env name=BUCKET::jameslnewell.dev'; else echo '::set-env name=BUCKET::x'; fi
+      - run: if [ $GITHUB_REF == "refs/heads/master" ] ; then echo '::set-env name=ROLE::${{ secrets.AWS_PROD_DEPLOY_ROLE_ARN }}'; else echo '::set-env name=ROLE::${{ secrets.AWS_DEV_DEPLOY_ROLE_ARN }}'; fi
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
       - id: yarn-cache-dir-path
@@ -119,5 +120,5 @@ jobs:
           aws-region: ap-southeast-2
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY_SECRET }}
-          role-to-assume: ${{ env.ENV }}
+          role-to-assume: ${{ env.ROLE }}
       - run: yarn satay
