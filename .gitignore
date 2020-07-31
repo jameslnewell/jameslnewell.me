@@ -16,4 +16,4 @@ yarn-error.log
 # gatsby
 .cache/
 public/
-src/types/graphql.ts
+src/types/graphql.d.ts

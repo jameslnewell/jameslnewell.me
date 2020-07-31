@@ -3,7 +3,6 @@
 import React from 'react';
 import {Margin, mt} from 'styled-components-spacing';
 import {graphql, useStaticQuery} from 'gatsby';
-// import {HeroPanelQuery} from '../../../types/graphql';
 import {
   OuterWrapper,
   InnerWrapper,
