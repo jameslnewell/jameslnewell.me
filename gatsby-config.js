@@ -19,10 +19,9 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-google-tagmanager`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        id: process.env.GA_ID,
-        includeInDevelopment: false,
+        trackingIds: [process.env.GA_ID],
       },
     },
     `gatsby-plugin-styled-components`,
