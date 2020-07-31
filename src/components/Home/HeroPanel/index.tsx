@@ -3,7 +3,7 @@
 import React from 'react';
 import {Margin, mt} from 'styled-components-spacing';
 import {graphql, useStaticQuery} from 'gatsby';
-import {HeroPanelQuery} from '../../../types/graphql';
+// import {HeroPanelQuery} from '../../../types/graphql';
 import {
   OuterWrapper,
   InnerWrapper,
@@ -30,7 +30,7 @@ const query = graphql`
 `;
 
 export const HeroPanel: React.FC = () => {
-  const data = useStaticQuery<HeroPanelQuery>(query);
+  const data = useStaticQuery<GatsbyTypes.HeroPanelQuery>(query);
   return (
     <OuterWrapper>
       <InnerWrapper>

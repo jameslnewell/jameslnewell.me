@@ -28,9 +28,9 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-no-javascript`,
     {
-      resolve: 'gatsby-plugin-graphql-codegen',
+      resolve: 'gatsby-plugin-typegen',
       options: {
-        fileName: 'src/types/graphql.ts',
+        outputPath: 'src/types/graphql.d.ts',
       },
     },
   ],
