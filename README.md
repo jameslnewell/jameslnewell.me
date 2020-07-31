@@ -1,6 +1,6 @@
 # jameslnewell.dev
 
-![build-and-deploy](https://github.com/actions/jameslnewell/jameslnewell.dev/.github/workflows/main.yml/badge.svg)
+![Build and Deploy](https://github.com/jameslnewell/jameslnewell.dev/workflows/Build%20and%20Deploy/badge.svg)
 
 The website at [jameslnewell.dev](https://jameslnewell.dev).
 
