@@ -17,16 +17,5 @@ export const Root: React.FC = ({children}) => (
     </Helmet>
     <Reset />
     {children}
-    {/* fix 100vh scroll issue on iOS */}
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `
-        window.onresize = function() {
-          document.body.height = window.innerHeight;
-        }
-        window.onresize();
-        `,
-      }}
-    />
   </>
 );

@@ -19,6 +19,7 @@ export const Reset = createGlobalStyle`
 
   body {
     color: #444;
+    background-color: #fbfbfb;
     font-family:
       -apple-system,
       BlinkMacSystemFont,

@@ -16,8 +16,10 @@ export const OuterWrapper = styled.header`
 
   box-sizing: border-box;
   min-height: 100vh;
-
-  background-color: #fbfbfb;
+  /* fix safari height with bottom toolbar*/
+  @supports (-webkit-touch-callout: none) {
+    min-height: -webkit-fill-available;
+  }
 `;
 
 export const InnerWrapper = styled.div`
@@ -59,7 +61,6 @@ export const Logo = styled.img`
   height: 1.5em;
   fill: red;
   color: red;
-  background-color: red;
   filter: invert();
 `;
 
