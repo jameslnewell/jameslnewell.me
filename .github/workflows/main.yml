@@ -122,4 +122,5 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY_SECRET }}
           role-duration-seconds: 900
           role-to-assume: ${{ env.ROLE }}
+      - run: aws s3 cp public/ s3://jameslnewell.dev/ --recursive
       - run: yarn satay
