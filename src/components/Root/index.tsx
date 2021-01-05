@@ -6,7 +6,7 @@ import james from '!file-loader!../../images/james.jpg';
 
 // FIXME: make URL dynamic
 const url = 'https://jameslnewell.dev';
-const bio = `An 🇦🇺 Software Engineer passionate about empowering teams to deliver more efficiently, with more confidence and to a higher degree of quality.`;
+const bio = `An Australian Software Engineer passionate about empowering teams to deliver more efficiently, with more confidence and to a higher degree of quality.`;
 
 export const Root: React.FC = ({children}) => (
   <>
